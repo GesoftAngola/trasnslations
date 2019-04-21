@@ -32,7 +32,7 @@
                     </t>
                     <!--Alterado por GeSoft -->
                     <t t-if="widget.pos.company.vat">
-                        <div style="width:100%;text-align:right;"><t t-esc="widget.pos.company.vat"/></div>
+                        <div style="width:100%;text-align:right;">NIF:<t t-esc="widget.pos.company.vat"/></div>
                     </t>   
                     <t t-if="widget.pos.get_client() and widget.pos.get_client().name">
 	                <br/>
@@ -201,6 +201,17 @@
                 <t t-if="widget.pos.company.email">
                     <div style="width:100%;text-align:right;"><t t-esc="widget.pos.company.email"/></div>
                 </t>
+		<!--Alterado por GeSoft -->
+                    <t t-if="widget.pos.company.vat">
+                        <div style="width:100%;text-align:right;">NIF:<t t-esc="widget.pos.company.vat"/></div>
+                    </t>   
+                    <t t-if="widget.pos.get_client() and widget.pos.get_client().name">
+	                <br/>
+	                <div>
+	                    Cliente: <t t-esc="widget.pos.get_client().name"/>
+	                </div>
+	             </t>            
+                <!--Alterado por GeSoft -->	 
                 <br />
                 <t t-if="receipt.header">
                     <div style='text-align:center'>
