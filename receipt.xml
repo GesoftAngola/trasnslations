@@ -30,6 +30,7 @@
             <t t-if="!order.get_invoice_name() and !order.get_sale_order_name()" >
                 <t t-esc="order.get_pos_reference() ? order.get_pos_reference() : order.name" />
             </t>
+            
         </t>
         <t t-jquery="div.receipt-phone" t-operation="replace">
             <div class="pos-left-align">
@@ -168,10 +169,10 @@
         </t>
         <t t-jquery="table.receipt-total tr:first" t-operation="replace">
             <t t-if="order.get_due() == 0" >
-                <tr>
+             <!--   <tr>
 	                <td>Subtotal:</td>
 	                <td class="pos-right-align">
-<!--Comment-->        <t t-esc="widget.format_currency(order.get_total_without_tax())"/> 
+#### Comment                <t t-esc="widget.format_currency(order.get_total_without_tax())"/> 
 	                    <t t-if="order.get_credit_detail()">
 		                    <t t-set="sub_total" t-value="0"/>
 	                       	<t t-foreach="order.get_credit_detail()" t-as="credit">
@@ -183,7 +184,7 @@
 	                		<t t-esc="widget.format_currency(order.get_total_without_tax())"/>
 	                	</t>
 	                </td>
-	            </tr>
+	            </tr> -->
             </t>
             <t t-if="widget.pos.config.enable_credit and widget.pos.get_client() and widget.pos.credit_amount and
             widget.pos.get_order().get_credit_detail() and widget.pos.get_order().get_credit_detail()[0]">

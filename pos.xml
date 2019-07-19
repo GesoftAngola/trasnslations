@@ -1446,14 +1446,19 @@
 
     <t t-name="PosTicket">
         <div class="pos-sale-ticket">
-<!--GESOFT
-            <div class="pos-center-align" style="font-size:12px;"><t t-esc="order.formatted_validation_date"/> <br /><t t-esc="order.state"/></div>
-GESOFT-->                       
-            <t t-esc="order.formatted_validation_date"/>
-            <t t-esc="order.state"/>
-            <t t-esc="widget.pos.company.name"/>
+
+            <div class="pos-center-align" style="font-size:14px;">
+            <t t-esc="order.formatted_validation_date"/> <br />
+            <strong>RECIBO:
+            <t t-esc="order.uid"/></strong> <br />
+            </div>
+                       
+            <!--<t t-esc="order.formatted_validation_date"/>
+            <t t-esc="order.state"/> -->
+            <strong><t t-esc="widget.pos.company.name"/></strong> <br />
+            NIF:
+            <t t-esc="widget.pos.company.vat"/>
             <div class="receipt-phone"> 
-            
                 Phone: <t t-esc="widget.pos.company.phone || ''"/><br />
             </div>
             <!--<div class="receipt-user">
@@ -1504,7 +1509,7 @@ GESOFT-->
             </table>
             <br />
             <table class='receipt-total'>
-                <tr>
+               <!-- <tr>
                     <td>Subtotal:</td>
                     <td class="pos-right-align">
                         <t t-esc="widget.format_currency(order.get_total_without_tax())"/>
@@ -1517,7 +1522,7 @@ GESOFT-->
                             <t t-esc="widget.format_currency(taxdetail.amount)" />
                         </td>
                     </tr>
-                </t>
+                </t> -->
                 <tr>
                     <t t-if="order.get_total_discount() > 0">
                         <td>Discount:</td>
